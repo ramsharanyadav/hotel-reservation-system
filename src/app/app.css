@@ -1,8 +1,8 @@
 .app-container {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 20px;
-  font-family: Arial, sans-serif;
+  padding: 15px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .app-title {
@@ -10,12 +10,114 @@
   margin-bottom: 20px;
   font-size: 28px;
   font-weight: bold;
-  color: #333;
+  color: #2c3e50;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
 }
 
 .top-panel {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* booking bigger */
+  gap: 15px;
   margin-bottom: 20px;
 }
+
+.card {
+  padding: 15px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.card h2 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #34495e;
+  text-align: center;
+}
+
+.booking-card .input-section {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+.booking-card input {
+  width: 55px;
+  padding: 4px;
+  font-size: 14px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.button-section {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+button {
+  padding: 6px 12px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  color: white;
+  transition: background 0.2s ease;
+}
+
+button.book { background-color: #28a745; }
+button.book:hover { background-color: #218838; }
+
+button.reset { background-color: #e74c3c; }
+button.reset:hover { background-color: #c0392b; }
+
+button.random { background-color: #007bff; }
+button.random:hover { background-color: #0056b3; }
+
+.info-msg {
+  margin-top: 5px;
+  font-size: 13px;
+  color: #27ae60;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* === Status Card Styling (compact) === */
+.status-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.status-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  background: #f8f9fa;
+}
+
+.status-item .label {
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 13px;
+  color: white;
+  min-width: 40px;
+  text-align: center;
+}
+
+.badge.total { background-color: #6c757d; }
+.badge.available { background-color: #28a745; }
+.badge.booked { background-color: #dc3545; }

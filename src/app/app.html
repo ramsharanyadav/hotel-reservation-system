@@ -1,11 +1,45 @@
 <div class="app-container">
   <!-- Title -->
-  <h1 class="app-title">{{ title }}</h1>
+  <h1 class="app-title">🏨 Hotel Room Reservation System</h1>
 
-  <!-- Booking Form & Controls in a row -->
+  <!-- Top panel: Booking first, Status second -->
   <div class="top-panel">
-    <app-booking-form></app-booking-form>
-    <app-controls></app-controls>
+    
+    <!-- Card 1: Booking Panel -->
+    <div class="card booking-card">
+      <h2>Booking Panel</h2>
+      
+      <div class="input-section">
+        <label for="numRooms">Rooms:</label>
+        <input type="number" [(ngModel)]="numRooms" min="1" max="5" id="numRooms">
+      </div>
+
+      <div class="button-section">
+        <button class="book" (click)="bookRooms()">Book</button>
+        <button class="reset" (click)="reset()">Reset</button>
+        <button class="random" (click)="randomize()">Random</button>
+      </div>
+
+      <p *ngIf="lastBookingMsg" class="info-msg">{{ lastBookingMsg }}</p>
+    </div>
+
+    <!-- Card 2: Hotel Status -->
+    <div class="card status-card">
+      <h2>Status</h2>
+      <div class="status-item total">
+        <span class="label">Total:</span>
+        <span class="badge total">{{ rooms.length }}</span>
+      </div>
+      <div class="status-item available">
+        <span class="label">Available:</span>
+        <span class="badge available">{{ getAvailableRoomsCount() }}</span>
+      </div>
+      <div class="status-item booked">
+        <span class="label">Booked:</span>
+        <span class="badge booked">{{ getBookedRoomsCount() }}</span>
+      </div>
+    </div>
+
   </div>
 
   <!-- Room Grid -->

@@ -35,58 +35,42 @@
   text-align: center;
 }
 
-.booking-card .input-section {
-  margin-bottom: 10px;
+/* === Booking Card === */
+.booking-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 15px;
+}
+
+.booking-card .section {
   display: flex;
   align-items: center;
-  gap: 8px;
   justify-content: center;
+  gap: 10px;
+}
+
+.booking-card label {
+  font-weight: 500;
+  color: #2c3e50;
+  font-size: 14px;
 }
 
 .booking-card input {
-  width: 55px;
-  padding: 4px;
+  width: 70px;
+  padding: 5px;
   font-size: 14px;
   text-align: center;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
-.button-section {
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  margin-bottom: 8px;
-}
-
-button {
-  padding: 6px 12px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  font-size: 13px;
-  color: white;
-  transition: background 0.2s ease;
-}
-
-button.book { background-color: #28a745; }
-button.book:hover { background-color: #218838; }
-
-button.reset { background-color: #e74c3c; }
-button.reset:hover { background-color: #c0392b; }
-
-button.random { background-color: #007bff; }
-button.random:hover { background-color: #0056b3; }
-
-.info-msg {
+.actions {
   margin-top: 5px;
-  font-size: 13px;
-  color: #27ae60;
-  font-weight: 500;
-  text-align: center;
+  justify-content: space-evenly;
 }
 
-/* === Status Card Styling (compact) === */
+/* === Status Card === */
 .status-card {
   display: flex;
   flex-direction: column;
@@ -121,3 +105,35 @@ button.random:hover { background-color: #0056b3; }
 .badge.total { background-color: #6c757d; }
 .badge.available { background-color: #28a745; }
 .badge.booked { background-color: #dc3545; }
+
+/* === Buttons === */
+button {
+  padding: 6px 14px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  color: white;
+  transition: background 0.2s ease;
+}
+
+button.book { background-color: #28a745; }
+button.book:hover { background-color: #218838; }
+
+button.book-specific { background-color: #17a2b8; }
+button.book-specific:hover { background-color: #117a8b; }
+
+button.reset { background-color: #e74c3c; }
+button.reset:hover { background-color: #c0392b; }
+
+button.random { background-color: #007bff; }
+button.random:hover { background-color: #0056b3; }
+
+/* === Messages === */
+.info-msg {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #27ae60;
+  font-weight: 500;
+  text-align: center;
+}

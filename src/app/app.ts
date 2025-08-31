@@ -11,7 +11,7 @@ import { RoomGridComponent } from './components/room-grid/room-grid';
   standalone: true,
   imports: [CommonModule, FormsModule, RoomGridComponent],
   templateUrl: './app.html',
-  styleUrls: ['./app.css']
+  styleUrls: ['./app.css'],
 })
 export class AppComponent implements OnInit {
   title = 'Hotel Reservation System';
@@ -36,8 +36,9 @@ export class AppComponent implements OnInit {
       this.lastBookingMsg = 'Not enough rooms available.';
     } else {
       const info = this.roomService.getLastBooking();
-      this.lastBookingMsg =
-        `Booked Rooms: ${info?.rooms.join(', ')} | Travel Time: ${info?.travelTime} min`;
+      this.lastBookingMsg = `Booked Rooms: ${info?.rooms.join(', ')} | Travel Time: ${
+        info?.travelTime
+      } min`;
     }
   }
 
@@ -49,7 +50,7 @@ export class AppComponent implements OnInit {
   randomize() {
     this.roomService.resetRooms();
     const rooms = this.roomService.getRooms();
-    rooms.forEach(r => {
+    rooms.forEach((r) => {
       if (Math.random() < 0.3) {
         r.occupied = true;
       }
@@ -59,10 +60,44 @@ export class AppComponent implements OnInit {
 
   // === Status counts ===
   getAvailableRoomsCount(): number {
-    return this.rooms.filter(r => !r.occupied).length;
+    return this.rooms.filter((r) => !r.occupied).length;
   }
 
   getBookedRoomsCount(): number {
-    return this.rooms.filter(r => r.occupied).length;
+    return this.rooms.filter((r) => r.occupied).length;
   }
+
+  specificRoom: number | null = null;
+
+  bookSpecificRoom() {
+    if (!this.specificRoom) {
+      alert('Please enter a room number.');
+      return;
+    }
+
+    const room = this.rooms.find((r) => r.id === this.specificRoom);
+    if (!room) {
+      this.lastBookingMsg = `Room ${this.specificRoom} does not exist.`;
+      return;
+    }
+
+    if (room.occupied) {
+      this.lastBookingMsg = `Room ${this.specificRoom} is already booked.`;
+      return;
+    }
+
+    room.occupied = true;
+    this.lastBookingMsg = `Room ${this.specificRoom} booked successfully.`;
+    this.specificRoom = null; // reset input
+  }
+
+  bookRoomFromGrid(room: Room) {
+    if (room.occupied) {
+      this.lastBookingMsg = `Room ${room.id} is already booked.`;
+      return;
+    }
+    room.occupied = true;
+    this.lastBookingMsg = `Room ${room.id} booked successfully (via grid).`;
+  }
+  
 }

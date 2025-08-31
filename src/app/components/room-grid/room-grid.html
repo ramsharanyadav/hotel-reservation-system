@@ -1,18 +1,26 @@
-<div class="hotel-container">
-  <div *ngFor="let f of floors" class="floor">
-    <!-- Left side: Lift/Stairs -->
-    <div class="stair-lift">Lift/Stairs</div>
+<div class="floor" *ngFor="let floor of floors">
+  <div class="floor-label">Floor {{ floor.floor }}</div>
+  <div class="floor-row">
+    
+    <!-- Stairs & Lift -->
+    <div class="facility">
+      <span class="icon">🪜</span>
+      <span class="icon">🛗</span>
+    </div>
 
-    <!-- Right side: Rooms -->
+    <!-- Rooms -->
     <div class="rooms">
-      <div *ngFor="let r of f.rooms"
-           class="room"
-           [ngClass]="{
-             'occupied': r.occupied,
-             'available': !r.occupied,
-             'last-booked': isLastBooked(r.id)
-           }">
-        {{ r.id }}
+      <div
+        *ngFor="let room of floor.rooms"
+        class="room"
+        [ngClass]="{
+          booked: room.occupied,
+          available: !room.occupied,
+          highlight: isLastBooked(room.id)
+        }"
+        (click)="onRoomClick(room)"
+      >
+        {{ room.id }}
       </div>
     </div>
   </div>

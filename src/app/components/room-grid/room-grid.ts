@@ -1,17 +1,19 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { CommonModule } from '@angular/common';  // ✅ import this
+import { Component, Input, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Room } from '../../models/room';
 import { RoomService } from '../../services/room';
 
 @Component({
   selector: 'app-room-grid',
-  standalone: true,              // ✅ standalone
-  imports: [CommonModule],       // ✅ must import CommonModule
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './room-grid.html',
   styleUrls: ['./room-grid.css']
 })
 export class RoomGridComponent implements OnChanges {
   @Input() rooms: Room[] = [];
+  @Output() roomSelected = new EventEmitter<Room>();   // ✅ emit when user clicks room
+
   floors: { floor: number, rooms: Room[] }[] = [];
   lastBookedRooms: number[] = [];
 
@@ -41,5 +43,10 @@ export class RoomGridComponent implements OnChanges {
 
   isLastBooked(roomId: number): boolean {
     return this.lastBookedRooms.includes(roomId);
+  }
+
+  // ✅ handle click event
+  onRoomClick(room: Room): void {
+    this.roomSelected.emit(room);
   }
 }

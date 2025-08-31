@@ -1,12 +1,25 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RoomService } from './services/room';
+import { Room } from './models/room';
+import { RoomGridComponent } from './components/room-grid/room-grid';
+import { BookingFormComponent } from './components/booking-form/booking-form';
+import { ControlsComponent } from './components/controls/controls';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [CommonModule, RoomGridComponent, BookingFormComponent, ControlsComponent],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css']
 })
-export class App {
-  protected readonly title = signal('hotel-reservation-system');
+export class AppComponent implements OnInit {
+  title = 'Hotel Reservation System';
+  rooms: Room[] = [];   // ✅ define rooms property
+
+  constructor(private roomService: RoomService) {}
+
+  ngOnInit(): void {
+    this.rooms = this.roomService.getRooms();
+  }
 }

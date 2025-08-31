@@ -1,0 +1,32 @@
+.card {
+  padding: 15px;
+  border-radius: 8px;
+  background: #f8f9fa;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  flex: 1;
+}
+
+input {
+  margin: 0 10px;
+  padding: 5px;
+}
+
+button {
+  padding: 6px 12px;
+  margin-left: 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: #28a745;
+  color: white;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+.info-msg {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #444;
+}

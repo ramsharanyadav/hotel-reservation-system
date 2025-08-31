@@ -1,0 +1,8 @@
+<div class="card">
+  <h2>Book Rooms</h2>
+  <label for="numRooms">Number of Rooms:</label>
+  <input type="number" [(ngModel)]="numRooms" min="1" max="5" id="numRooms">
+  <button (click)="bookRooms()">Book</button>
+
+  <p *ngIf="lastBookingMsg" class="info-msg">{{ lastBookingMsg }}</p>
+</div>

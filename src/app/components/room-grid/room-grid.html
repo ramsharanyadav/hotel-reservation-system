@@ -1,0 +1,19 @@
+<div class="hotel-container">
+  <div *ngFor="let f of floors" class="floor">
+    <!-- Left side: Lift/Stairs -->
+    <div class="stair-lift">Lift/Stairs</div>
+
+    <!-- Right side: Rooms -->
+    <div class="rooms">
+      <div *ngFor="let r of f.rooms"
+           class="room"
+           [ngClass]="{
+             'occupied': r.occupied,
+             'available': !r.occupied,
+             'last-booked': isLastBooked(r.id)
+           }">
+        {{ r.id }}
+      </div>
+    </div>
+  </div>
+</div>

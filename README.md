@@ -1,59 +1,53 @@
-# HotelReservationSystem
+# Hotel Room Reservation System (Angular 11)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.1.
+## 📌 Problem Statement
+A hotel has **97 rooms** across **10 floors**:
+- Floors 1–9 → 10 rooms each (e.g., 101–110, 201–210).
+- Floor 10 → 7 rooms (1001–1007).
+- Booking rules:
+  - A guest can book up to 5 rooms.
+  - Prefer booking on the same floor.
+  - If not possible, minimize travel time (horizontal = 1 min, vertical = 2 min).
+- Deliverables:
+  - Form to enter number of rooms and book them.
+  - Visualization of bookings.
+  - Button to generate random occupancy.
+  - Button to reset bookings.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🚀 Tech Stack
+- Angular 11
+- TypeScript
+- Node.js / npm
 
-```bash
-ng serve
-```
+---
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 📂 Project Structure
+src/app/
+├── components/
+│ ├── booking-form/ # input for number of rooms
+│ ├── controls/ # reset + random occupancy
+│ ├── room-grid/ # hotel floors & rooms visualization
+├── models/
+│ └── room.ts # Room interface
+├── services/
+│ └── room.service.ts # Booking & travel time logic
+├── app.component.ts # root component
 
-## Code scaffolding
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-```bash
-ng generate component component-name
-```
+---
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## ⚙️ Installation & Setup
 
-```bash
-ng generate --help
-```
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/ramsharanyadav/hotel-reservation-system.git
+   cd hotel-reservation-system
+   npm install
+   ng serve -o
 
-## Building
 
-To build the project run:
 
-```bash
-ng build
-```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

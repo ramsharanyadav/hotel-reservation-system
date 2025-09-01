@@ -1,4 +1,4 @@
-# Hotel Room Reservation System (Angular 11)
+# Hotel Room Reservation System
 
 ## 📌 Problem Statement
 A hotel has **97 rooms** across **10 floors**:
@@ -17,9 +17,9 @@ A hotel has **97 rooms** across **10 floors**:
 ---
 
 ## 🚀 Tech Stack
-- Angular 11
+- npm 11
 - TypeScript
-- Node.js / npm
+- Node.js
 
 ---
 
@@ -32,8 +32,8 @@ src/app/
 ├── models/
 │ └── room.ts # Room interface
 ├── services/
-│ └── room.service.ts # Booking & travel time logic
-├── app.component.ts # root component
+│ └── room.ts # Booking & travel time logic
+├── app.ts # root component
 
 
 
@@ -47,6 +47,11 @@ src/app/
    cd hotel-reservation-system
    npm install
    ng serve -o
+
+## github page url ##
+
+```bash
+https://ramsharanyadav.github.io/hotel-reservation-system/
 
 
 
